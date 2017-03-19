@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link href="/stylesheets/foundation.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/prism.css"/>
+<script src="/javascripts/foundation.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(document).foundationTopBar() 
+	})
+</script>
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+	<title>系统架构</title>
+</head>
+<body>
+	<nav class="top-bar fixed">
+		<ul>
+			<!-- Title Area -->
+			<li class="name">
+				<h1>
+					<a href="/">
+						<img src="/images/blade-bar-logo.png" alt="logo" width="25" height="25" />
+						&nbsp; Blade Web Framework
+					</a>
+				</h1>
+			</li>
+			<li class="toggle-topbar"><a href="#"></a></li>
+		</ul>
+		<section>
+			<!-- Right Nav Section -->
+			<ul class="right" style="padding-right: 10px;">
+				<li>
+					<a href="/index.html" class="fa fa-home"> 首页</a>
+				</li>
+				<li>
+					<a href="/apidocs" class="fa fa-book"> API文档</a>
+				</li>
+				<!-- <li class="divider"></li> -->
+				<li class="has-dropdown">
+					<a class="fa fa-hashtag" href="/docs/cn/overview.html"> 开发指南</a>
+					<ul class="dropdown">
+						
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/overview.html"><i class="fa fa-home"></i> 框架简介</a>
+	</li>
+
+	
+	
+	<li class="active">
+		<a href="/docs/cn/architecture.html"><i class="fa fa-sitemap"></i> 系统架构</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/quickstart.html"><i class="fa fa-paper-plane-o"></i> 快速入门</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/core.html"><i class="fa fa-diamond"></i> 核心概念</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/view.html"><i class="fa fa-code"></i> 视图模板</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/configuration.html"><i class="fa fa-cog"></i> 框架配置</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/database.html"><i class="fa fa-cubes"></i> 数据库</a>
+	</li>
+
+					</ul>
+				</li>
+
+				<li>
+					<a href="https://github.com/biezhi/blade" class="fa fa-github"> GitHub</a>
+				</li>
+
+				<li>
+					<a href="/license.html" class="fa fa-legal"> License</a>
+				</li>
+
+				<li>
+					<a href="/index_en.html"  class="fa fa-language"> English</a>
+				</li>
+
+			</ul>
+		</section>
+	</nav>
+
+	<!-- Main Body -->
+	<div class="row">
+		<div class="nine columns">
+			<div id="content">
+				<h1 id="系统架构">系统架构</h1>
+
+<h2 id="概念">概念</h2>
+
+<p>Blade 从Rails 和 Play! 中吸收了许多成熟的设计思想, 许多相同的思想被用到了框架的设计和接口中。</p>
+
+<p>Blade 通过简单的约定来支持 MVC 设计模式，轻量、开发效率高。</p>
+
+<h2 id="mvc">MVC</h2>
+
+<ul>
+  <li>模型 描述基本的数据对象，特定的查询和更新逻辑。</li>
+  <li>视图 一些模板，用于将数据呈现给用户。</li>
+  <li>控制器 执行用户的请求，准备用户所需的数据，并指定模板进行渲染。</li>
+</ul>
+
+<h2 id="整体设计">整体设计</h2>
+
+<p><img src="https://ooo.0o0.ooo/2016/09/07/57cf843566a9a.png" alt="" /></p>
+
+<p><code>blade</code>是基于<code>blade-core</code>为核心的构建的，是一个高度解耦的框架。</p>
+
+<p><code>blade</code>设计之初就考虑了模块化使用，用独立的组件进行开发，部分组件不依赖<code>blade</code>，例如：你可以使用<code>blade-cache</code>模块来做你的缓存逻辑；使用<code>blade-kit</code>模块来作为你的基础工具包。</p>
+
+<h2 id="执行逻辑">执行逻辑</h2>
+
+<p>既然<code>blade</code>是基于核心模块构建的，那么他的执行逻辑是怎么样的呢？<code>blade</code>是一个典型的MVC架构，他的执行逻辑如下图所示：</p>
+
+<p><img src="https://i.imgur.com/joP7aBH.png" alt="" /></p>
+
+<h2 id="项目结构">项目结构</h2>
+
+<p>blade 推荐你使用 <code>maven</code> 进行项目的构建，作者认为任何一门语言都需要一个主流统一的包管理器，可能速度在国内不是那么乐观，但框架只有不到300kb，下载非常快，blade做到了一次编码直接部署的功能，我们提倡使用普通maven工程的结构来开发web程序，看起来也更简单，项目结构如下:</p>
+
+<p>一般的<code>blade</code>项目的目录如下所示，是一个maven类型的项目：</p>
+
+<pre><code class="language-shell">├─ src
+├── main
+├─── java
+│	├── Application
+│	├── config
+│   ├── controller
+│   ├── service
+│   └── interceptor
+├─── resources
+│   ├── app.properties
+│   ├── static
+│   │	├── js
+│	│	├── css
+└───└── templates
+</code></pre>
+
+<p>这样的结构非常清晰，是一个典型的MVC应用，我们将一个web程序分为如下部分:</p>
+
+<p><strong>java源码</strong></p>
+
+<ul>
+  <li><code>Application</code>:启动程序</li>
+  <li><code>config</code>: 自定义的配置包文件</li>
+  <li><code>controller</code>: 控制器和路由的存储位置</li>
+  <li><code>service</code>: 服务接口和实现 (如果需要可以加，非必需)</li>
+  <li><code>interceptor</code>: 路由拦截器所在包</li>
+</ul>
+
+<p><strong>resources资源</strong></p>
+
+<ul>
+  <li><code>app.properties</code>: 程序主配置文件(如果需要可以加，非必需)</li>
+  <li><code>static</code>: 静态资源存放文件夹</li>
+  <li><code>templates</code>: 模板文件存放文件夹</li>
+</ul>
+
+<p>如上的程序结构是 <code>blade</code> 推荐的，后面我们会详细讲解这个文档站点的开发过程，带你更深入的体验blade的魅力。</p>
+
+
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div class="three columns sidebar">
+			<a href="https://github.com/biezhi/blade" class="radius button fa fa-github huge">
+				Download <br/> from Github
+			</a>
+			<h4>开发指南</h4>
+			<ul class="side-nav">
+				
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/overview.html"><i class="fa fa-home"></i> 框架简介</a>
+	</li>
+
+	
+	
+	<li class="active">
+		<a href="/docs/cn/architecture.html"><i class="fa fa-sitemap"></i> 系统架构</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/quickstart.html"><i class="fa fa-paper-plane-o"></i> 快速入门</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/core.html"><i class="fa fa-diamond"></i> 核心概念</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/view.html"><i class="fa fa-code"></i> 视图模板</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/configuration.html"><i class="fa fa-cog"></i> 框架配置</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/database.html"><i class="fa fa-cubes"></i> 数据库</a>
+	</li>
+
+			</ul>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="row">
+		<div class="twelve columns">
+			<div class="row">
+				<div class="six columns">
+					<p>&copy; Copyright 2017, <a href="http://bladejava.com" >Blade Framework</a></p>
+				</div>
+				<div class="six columns">
+					<ul class="inline-list right">
+						<!-- <li><a href="#">Link 1</a></li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
