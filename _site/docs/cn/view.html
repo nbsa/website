@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link href="/stylesheets/foundation.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/prism.css"/>
+<script src="/javascripts/foundation.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(document).foundationTopBar() 
+	})
+</script>
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+	<title>视图模板</title>
+</head>
+<body>
+	<nav class="top-bar fixed">
+		<ul>
+			<!-- Title Area -->
+			<li class="name">
+				<h1>
+					<a href="/">
+						<img src="/images/blade-bar-logo.png" alt="logo" width="25" height="25" />
+						&nbsp; Blade Web Framework
+					</a>
+				</h1>
+			</li>
+			<li class="toggle-topbar"><a href="#"></a></li>
+		</ul>
+		<section>
+			<!-- Right Nav Section -->
+			<ul class="right" style="padding-right: 10px;">
+				<li>
+					<a href="/index.html" class="fa fa-home"> 首页</a>
+				</li>
+				<li>
+					<a href="/apidocs" class="fa fa-book"> API文档</a>
+				</li>
+				<!-- <li class="divider"></li> -->
+				<li class="has-dropdown">
+					<a class="fa fa-hashtag" href="/docs/cn/overview.html"> 开发指南</a>
+					<ul class="dropdown">
+						
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/overview.html"><i class="fa fa-home"></i> 框架简介</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/architecture.html"><i class="fa fa-sitemap"></i> 系统架构</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/quickstart.html"><i class="fa fa-paper-plane-o"></i> 快速入门</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/core.html"><i class="fa fa-diamond"></i> 核心概念</a>
+	</li>
+
+	
+	
+	<li class="active">
+		<a href="/docs/cn/view.html"><i class="fa fa-code"></i> 视图模板</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/configuration.html"><i class="fa fa-cog"></i> 框架配置</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/database.html"><i class="fa fa-cubes"></i> 数据库</a>
+	</li>
+
+					</ul>
+				</li>
+
+				<li>
+					<a href="/license.html" class="fa fa-legal"> License</a>
+				</li>
+
+				<li>
+					<a href="/index_en.html"  class="fa fa-language"> English</a>
+				</li>
+
+			</ul>
+		</section>
+	</nav>
+
+	<!-- Main Body -->
+	<div class="row">
+		<div class="nine columns">
+			<div id="content">
+				<h1 id="视图">视图</h1>
+
+<p>在一个MVC框架或者项目中 <code>View</code> 一定是非常重要的一环，在 Blade 中也集成了几款优秀的模板引擎来做视图展现。本人最常用的 <a href="https://github.com/subchen/jetbrick-template-2x">jetbrick-template</a>，业界流行的 <a href="http://velocity.apache.org/">velocity</a> 当然也可以集成其他的，代码也非常少，你可以自定义你喜欢的。</p>
+
+<h2 id="视图位置">视图位置</h2>
+
+<p>在 Blade 新版中已经去除了web方式的项目模型，我们推荐使用一个普通的maven工程来开发一个web应用，我们将所有的模板文件存放在 <code>resources/templates</code> 文件夹下方便管理。</p>
+
+<h2 id="使用">使用</h2>
+
+<p>在路由中使用简直不能再简单了。</p>
+
+<pre><code class="language-java">@Route("index")
+public String index(){
+	return "index.html";
+}
+</code></pre>
+
+<p>此时访问 <code>http://127.0.0.1:9000/index</code> 时就会跳转到 <code>resources/templates/index.html</code> 这个文件上，具体的解析操作由模板引擎帮你完成。</p>
+
+
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div class="three columns sidebar">
+			<a href="https://github.com/biezhi/blade" class="radius button fa fa-github huge">
+				Download <br/> from Github
+			</a>
+			<h4>开发指南</h4>
+			<ul class="side-nav">
+				
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/overview.html"><i class="fa fa-home"></i> 框架简介</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/architecture.html"><i class="fa fa-sitemap"></i> 系统架构</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/quickstart.html"><i class="fa fa-paper-plane-o"></i> 快速入门</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/core.html"><i class="fa fa-diamond"></i> 核心概念</a>
+	</li>
+
+	
+	
+	<li class="active">
+		<a href="/docs/cn/view.html"><i class="fa fa-code"></i> 视图模板</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/configuration.html"><i class="fa fa-cog"></i> 框架配置</a>
+	</li>
+
+	
+	
+	<li class="">
+		<a href="/docs/cn/database.html"><i class="fa fa-cubes"></i> 数据库</a>
+	</li>
+
+			</ul>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="row">
+		<div class="twelve columns">
+			<div class="row">
+				<div class="six columns">
+					<p>&copy; Copyright 2017, <a href="http://bladejava.com" >Blade Framework</a></p>
+				</div>
+				<div class="six columns">
+					<ul class="inline-list right">
+						<!-- <li><a href="#">Link 1</a></li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
