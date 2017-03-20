@@ -45,7 +45,7 @@ import static com.blade.Blade.$;
 
 import com.blade.mvc.http.Request;
 import com.blade.mvc.http.Response;
-import com.blade.mvc.route.RouteHandler;
+import com.blade.mvc.handler.RouteHandler;
 
 public class Application {
 
@@ -71,7 +71,7 @@ log4j.appender.stdout.layout = org.apache.log4j.PatternLayout
 log4j.appender.stdout.layout.ConversionPattern = [hello] %d %-5p [%t] %c | %m%n
 ```
 
-将这个文件放在classpath下即可，如果你不这么做也不会报错，只是控制台看不到日志输出 :)
+将这个文件放在 `classpath` 下即可，如果你不这么做也不会报错，只是控制台看不到日志输出 :)
 
 ok，现在启动 `Application` 的main函数你将看:
 

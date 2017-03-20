@@ -8,8 +8,15 @@ body {
   border-radius: 6px;
   padding: 1em 1.5em;
 }
+.top-bar{
+  background-color: #3A3C42;
+}
 .top-bar ul>li.name a {
   padding: 0px;
+}
+
+.top-bar ul>li.name a:hover{
+  background-color: #333;
 }
 .side-nav a {
   font-size: 18px;
@@ -90,32 +97,28 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 0px;
 }
 
-
 /** Code **/
 pre {
   background: #f8f8f8;
-  padding: 8px 12px;
-  border: 1px dashed #ccc;
-  border-radius: 6px;
+  padding: 10px;
+  border-radius: 4px;
   margin-bottom: 2em;
   overflow: scroll;
+  box-shadow:0px 0px 1px #999;
 }
 pre code {
   background: none;
   font-weight: normal;
-  font-family: "Lucida Console", monospace;
   font-size: 12px;
 }
 
 code {
     background-color: #e3e8e7;
     color: #505050;
-    font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
-    margin: 1px 4px;
-    padding: 2px 5px;
 }
+
 code, kbd, pre, samp {
-    font-family: monospace,monospace;
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
     font-size: 1em;
 }
 
