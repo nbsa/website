@@ -43,45 +43,17 @@ mail.from=Nice
  我们习惯在主配置文件中设置好，比如邮箱配置，在系统启动的时候将它获取到并保存为常量。Blade的约定是将所有读取配置的操作放在基础包下的 `config` 包中，定义一个Java类继承自 `BaseConfig` 接口，在这里可以获取到配置信息。
 
 ```java
-@Component
-@Order(sort = 1)
-public class DBConfig implements BaseConfig {
-
-    public ActiveRecord activeRecord;
+public class WebContext implements WebContextListener {
 	
     @Override
-    public void config(Configuration configuration) {
-        try {
-            InputStream in = DBConfig.class.getClassLoader().getResourceAsStream("druid.properties");
-            Properties props = new Properties();
-            props.load(in);
-            DataSource dataSource = DruidDataSourceFactory.createDataSource(props);
-            activeRecord = new SampleActiveRecord(dataSource);
-            Blade.$().ioc().addBean(activeRecord);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-}
-```
-
-这个操作是加载数据库的配置并注册一个数据库的 `ActiveRecord` 对象到IOC容器中方便后续使用。
-
-```java
-@Component
-@Order(sort = 2)
-public class LoadConfig implements BaseConfig {
-	
-    @Override
-    public void config(Configuration configuration) {
-        Config config = configuration.config();
-        Constant.MAIL_HOST = config.get("mail.smtp.host");
+    public void init(BConfig bConfig, ServletContext sec) {
+        Config config = bConfig.confog();
+	// 这里就可以读取你的自定义配置了
+	Constant.MAIL_HOST = config.get("mail.smtp.host");
         Constant.MAIL_USER = config.get("mail.user");
         Constant.MAIL_USERNAME = config.get("mail.from");
         Constant.MAIL_PASS = config.get("mail.pass");
-
-    }
-
+    }
 }
 ```
 
