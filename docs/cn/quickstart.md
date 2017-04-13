@@ -73,6 +73,18 @@ log4j.appender.stdout.layout.ConversionPattern = [hello] %d %-5p [%t] %c | %m%n
 
 将这个文件放在 `classpath` 下即可，如果你不这么做也不会报错，只是控制台看不到日志输出 :)
 
+配置一下 `jdk8`，因为我们使用了 `maven` 有些同学默认的编译版本是8以下，所以可以在`pom.xml`加入以下配置指定编译版本：
+
+```xml
+<properties>
+  <maven.compiler.source>1.8</maven.compiler.source>
+  <maven.compiler.target>1.8</maven.compiler.target>
+  <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+</properties>
+```
+
+也有其他方法可以设置，点[这里](http://www.blogjava.net/fancydeepin/archive/2015/06/23/maven-jdk.html)看看
+
 ok，现在启动 `Application` 的main函数你将看:
 
 ```bash
