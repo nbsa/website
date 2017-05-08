@@ -51,9 +51,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		$().get("/", (request, response) -> {
-			public void handle(Request request, Response response) {
-				response.html("<h1>Hello Blade</h1>");
-			}
+			response.html("<h1>Hello Blade</h1>");
 		}).start(Application.class);
 	}
 	
