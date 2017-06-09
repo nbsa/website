@@ -10,26 +10,44 @@ isDoc: false
     Blade一款简洁优雅，微内核设计的 Java Web 框架
 </p>
 
+<div class="row" style="margin-left: 2px;">
+<iframe src="https://ghbtns.com/github-btn.html?user=biezhi&repo=blade&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+<iframe src="https://ghbtns.com/github-btn.html?user=biezhi&repo=blade&type=fork&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+</div>
+
 <div class="row">
     <div class="six columns">
         <h4><i class="fa fa-leaf"></i> 轻量级</h4>
-        <p>新一代JavaWeb框架，不依赖更多的库，摆脱SSH的臃肿，模块化设计，使用起来更轻便。</p>
+        <p>新一代MVC框架，不依赖更多的库，摆脱SSH的臃肿，模块化设计，使用起来更轻便。</p>
     </div>
     <div class="six columns">
         <h4><i class="fa fa-rocket"></i> 简洁高效 </h4>
-        <p>代码简洁、结构清晰，源代码只有不到300KB，写更少的代码快速开发。</p>
+        <p>代码简洁、Java8语法，写更少的代码快速开发，netty作为web服务器性能更强劲。</p>
     </div>
 </div>
 
 <div class="row">
     <div class="six columns">
         <h4><i class="fa fa-cogs"></i> 方便部署</h4>
-        <p>内置Jetty服务器，使用Maven将项目打成jar包直接运行，让Java部署更省心。</p>
+        <p>使用Maven插件将项目打成jar包直接运行，Java站点部署岂止于快。</p>
     </div>
     <div class="six columns">
         <h4><i class="fa fa-snowflake-o" aria-hidden="true"></i> 更多支持</h4>
         <p>支持多款模板引擎，ActiveRecord数据库操作，让您的开发过程更加便捷轻松。</p>
     </div>
+</div>
+
+<div class="row">
+<h3>Hello Blade :)</h3>
+
+<pre><code>
+public static void main(){
+    Blade blade = Blade.of();
+    blade.get("/", (request, response) -> response.text("Hello World."));
+    blade.start();
+}
+</code></pre>
+
 </div>
 
 <h3>参与贡献</h3>

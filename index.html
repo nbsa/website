@@ -22,14 +22,14 @@ isDoc: false
     </div>
     <div class="six columns">
         <h4><i class="fa fa-rocket"></i> 简洁高效 </h4>
-        <p>代码简洁、结构清晰，源代码只有不到300KB，写更少的代码快速开发。</p>
+        <p>代码简洁、Java8语法，写更少的代码快速开发，netty作为web服务器性能更强劲。</p>
     </div>
 </div>
 
 <div class="row">
     <div class="six columns">
         <h4><i class="fa fa-cogs"></i> 方便部署</h4>
-        <p>内置Jetty服务器，使用Maven将项目打成jar包直接运行，让Java部署更省心。</p>
+        <p>使用Maven插件将项目打成jar包直接运行，Java站点部署岂止于快。</p>
     </div>
     <div class="six columns">
         <h4><i class="fa fa-snowflake-o" aria-hidden="true"></i> 更多支持</h4>
@@ -38,16 +38,14 @@ isDoc: false
 </div>
 
 <div class="row">
-<h3>Hello Blade</h3>
+<h3>Hello Blade :)</h3>
 
-<pre class="language-java"><code class="hljs language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Application</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        $<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-            response<span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">"&lt;h1&gt;Hello blade!&lt;/h1&gt;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span>Application<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<pre><code>
+public static void main(){
+    Blade blade = Blade.of();
+    blade.get("/", (request, response) -> response.text("Hello World."));
+    blade.start();
+}
 </code></pre>
 
 </div>
