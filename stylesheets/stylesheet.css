@@ -1,6 +1,10 @@
 /** Theme **/
 body {
   background: url(/images/whitey.png) repeat;
+  font-family: "Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;
+}
+.row{
+  width: 1060px;
 }
 #content {
   background: white;
@@ -50,6 +54,7 @@ li [class^="icon-"], li [class*=" icon-"] {
 }
 #content ul li {
   margin-left: 2em;
+  list-style-type: square;
 }
 .top-bar ul>li.has-dropdown .dropdown li a {
   padding: 10px 16px;
@@ -83,16 +88,25 @@ a.button.huge::before {
   background: #00a15f;
 }
 
-
 /** Headers **/
 h1, h2, h3, h4, h5 {
-  font-weight: 300;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
   color: #444;
   margin-top: 1em;
 }
+h1 {
+  font-size: 34px;
+}
+h2 {
+  font-size: 30px;
+}
+
 #content h2:first-child {
   margin-top: 0px;
 }
+
 .sidebar h4 {
   margin-bottom: 0px;
 }
@@ -110,11 +124,15 @@ pre code {
   background: none;
   font-weight: normal;
   font-size: 12px;
+
 }
 
 code {
-    background-color: #e3e8e7;
+    background-color: #e0e1e3;
     color: #505050;
+    padding: 2px 3px;
+    border-radius: 3px;
+    font-weight: normal;
 }
 
 code, kbd, pre, samp {

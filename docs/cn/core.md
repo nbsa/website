@@ -8,7 +8,7 @@ icon: home
 ---
 
 
-# IOC
+# Blade 核心概念
 
 ## 什么是IOC？(大神可直接跳最下面)
 
